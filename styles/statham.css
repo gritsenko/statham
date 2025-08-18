@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #f5f5dc; /* Beige background */
+    color: #3a2d2d; /* Dark brown text */
+}
+
+.card {
+    background-color: #fffaf0; /* Floral white */
+    border: 2px solid #cdaa7d; /* Gilded border */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.author-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #8b4513; /* Saddle brown */
+}
+
+/* Prefer no pinch-zoom on touch devices and control double-tap behavior */
+html, body {
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+}
+button, a {
+    touch-action: manipulation;
+}
+
+/* toast for copy feedback */
+#copy-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(58,45,45,0.95);
+    color: #fffaf0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    font-size: 0.95rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 180ms ease-in-out, transform 180ms ease-in-out;
+    pointer-events: none;
+}
+#copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
