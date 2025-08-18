@@ -49,8 +49,8 @@ function rewriteForQuote(html, { id, text, author, baseRel }) {
   const relMetrika = `${baseRel}scripts/metrika.js`;
   const relData = `${baseRel}data.json`;
   const relFav = `${baseRel}favicon.svg`;
-  const relAltIcon = `${baseRel}staham.jpeg`;
-  const relAvatar = `${baseRel}staham.jpeg`;
+  const relAltIcon = `${baseRel}statham.jpg`;
+  const relAvatar = `${baseRel}statham.jpg`;
 
   let out = html;
   // Replace document <title>
@@ -75,8 +75,8 @@ function rewriteForQuote(html, { id, text, author, baseRel }) {
   out = out.replace(/src="\.\/scripts\/metrika.js"/g, `src="${relMetrika}"`);
   out = out.replace(/src="data.json"/g, `src="${relData}"`); // just in case
   out = out.replace(/href="favicon.svg"/g, `href="${relFav}"`);
-  out = out.replace(/href="https:\/\/gritsenko\.biz\/statham\/staham\.jpeg"/g, `href="${relAltIcon}"`);
-  out = out.replace(/src="\.\/staham\.jpeg"/g, `src="${relAvatar}"`);
+  out = out.replace(/href="https:\/\/gritsenko\.biz\/statham\/statham\.jpg"/g, `href="${relAltIcon}"`);
+  out = out.replace(/src="\.\/statham\.jpg"/g, `src="${relAvatar}"`);
 
   // Bake quote into HTML text placeholders (escape to prevent HTML issues)
   out = out.replace(/<p id="quote-display">[\s\S]*?<\/p>/, `<p id="quote-display">&quot;${titleEsc}&quot;<\/p>`);

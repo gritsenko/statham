@@ -138,8 +138,8 @@ async function generateQuoteImage(quoteId, outputPath = null) {
     
     // Load and draw Statham image
     try {
-    // Correct path: up one to statham/, then staham.jpeg
-    const stathamImagePath = path.join(__dirname, '..', 'staham_320.jpg');
+    // Correct path: up one to statham/, then statham.jpg
+    const stathamImagePath = path.join(__dirname, '..', 'statham_320.jpg');
         if (fs.existsSync(stathamImagePath)) {
             const stathamImg = await loadImage(stathamImagePath);
             // Calculate image size and position (circular crop)
@@ -239,7 +239,7 @@ async function generateQuoteImage(quoteId, outputPath = null) {
         outputPath = path.join(__dirname, '..', `og-cache/og-${quoteId}.jpg`);
     } else {
         // Force .jpg extension
-        outputPath = outputPath.replace(/\.(png|jpeg)$/i, '.jpg');
+        outputPath = outputPath.replace(/\.(png|jpg)$/i, '.jpg');
         if (!outputPath.toLowerCase().endsWith('.jpg')) {
             outputPath += '.jpg';
         }
@@ -248,9 +248,9 @@ async function generateQuoteImage(quoteId, outputPath = null) {
     // Save canvas as PNG buffer (canvas only outputs PNG)
     const buffer = canvas.toBuffer('image/png');
 
-    // Always output as JPEG
+    // Always output as jpg
     await sharp(buffer)
-        .jpeg({ quality: 60 })
+        .jpg({ quality: 60 })
         .toFile(outputPath);
 
     console.log(`Image saved to: ${outputPath}`);
