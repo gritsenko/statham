@@ -39,8 +39,8 @@ function rewriteForQuote(html, { id, text, author, baseRel }) {
       .replace(/'/g, '&#39;');
   }
   const titleRaw = text || '';
-  const titleEsc = escapeHtml(titleRaw);
-  const desc = `"${titleRaw}" — ${author}`;
+  const titleEsc = escapeHtml(`цитата №${id}`);
+  const desc = titleRaw;
   const descEsc = escapeHtml(desc);
   const ogImg = `og.jpg`;
   const absUrl = `https://gritsenko.biz/statham/quotes/${id}/`;
