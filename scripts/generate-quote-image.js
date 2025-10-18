@@ -248,9 +248,15 @@ async function generateQuoteImage(quoteId, outputPath = null) {
     // Save canvas as PNG buffer (canvas only outputs PNG)
     const buffer = canvas.toBuffer('image/png');
 
-    // Always output as jpg
+    // Ensure output directory exists
+    const outDir = path.dirname(outputPath);
+    if (!fs.existsSync(outDir)) {
+        fs.mkdirSync(outDir, { recursive: true });
+    }
+
+    // Always output as jpg — use correct Sharp API (.jpeg)
     await sharp(buffer)
-        .jpg({ quality: 60 })
+        .jpeg({ quality: 60 })
         .toFile(outputPath);
 
     console.log(`Image saved to: ${outputPath}`);
